@@ -1,35 +1,30 @@
 {
-  "name": "week11",
+  "name": "week11-master",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fiorella94/week11.git"
+    "url": "git+https://github.com/Fiorella94/week11Automation.git"
   },
-  "keywords": [],
-  "author": "Fiorella",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Fiorella94/week11/issues"
+    "url": "https://github.com/Fiorella94/week11Automation/issues"
   },
-  "homepage": "https://github.com/Fiorella94/week11#readme",
+  "homepage": "https://github.com/Fiorella94/week11Automation#readme",
   "dependencies": {
     "@wdio/cli": "^7.5.7",
-    "@wdio/sync": "^7.5.7",
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "@wdio/sync": "^7.5.7"
   },
   "devDependencies": {
     "@wdio/local-runner": "^7.5.7",
     "@wdio/mocha-framework": "^7.5.3",
     "@wdio/spec-reporter": "^7.5.7",
     "chromedriver": "^90.0.0",
-    "nodemon": "^2.0.7",
     "wdio-chromedriver-service": "^7.0.0"
-  },
-  "description": ""
+  }
 }

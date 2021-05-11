@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <script src="js/register.js" defer="defer"></script>
+        <script src="https://kit.fontawesome.com/e15e8c34af.js" crossorigin="anonymous"></script>  
+        <link rel="stylesheet" type="test/css" href="CSS/reset.css">
+        <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    </head>
+    <body>
+        <h1>Register</h1>
+        <a href="login.html" rel="noopener noreferrer">
+        <h3>Fill in this form to register.</h3>
+        <form id="main-form">
+            <label for="full-name">Full Name</label>
+            <input type="text" name="full-name" placeholder="Full Name" id="formRegisterName">            
+            <div id="registerErrorname" class="hidden">
+                <p>Name must be at least 6 characters long and have a space</p>
+            </div>
+            <label for="email">Email Adress</label>
+            <input type="text" name="email" placeholder="Email" id="formRegisterEmail">
+            <div id="registerErrorEmail" class="hidden">
+                <p>E-mail must have a valid format</p>
+            </div>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password" id="formRegisterFirstPassword">
+            <div id="registerErrorFirstPassword" class="hidden">
+                <p>Password must have the correct format</p>
+            </div>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" name="confirm-password" placeholder="Confirm Password" id="formRegisterSecondPassword">
+            <div id="registerErrorSecondPassword" class="hidden">
+                <p>Passwords must have the correct format and match</p>
+            </div>
+            <button type="submit" name="submit" id="submitButton">Submit</button>
+            <button type="reset" name="reset" id="resetFieldsButton">Reset</button>
+            <p>Already have an acount?<a href="login.html">Login!</a></p>
+        </form>
+        <div id="error-log-container" class="hidden">
+            <h2>Validation report: </h2>
+            <ul id="list-of-errors">
+            </ul>
+            <h2>The form data is: </h2>
+            <ul id="list-of-results"></ul>
+            <div id="error-log-cleaner">
+                <p>If you want to reset the validations log to perofm a new test click on finish</p>
+                <a  id="clean-form-link">
+                    <p>Finish</p>
+                </a>
+            </div>
+        </div>
+        <div id="message">
+            <h3>Password must contain the following:</h3>
+            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+            <p id="number" class="invalid">A <b>number</b></p>
+            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+        </div>
+    </body>
+</html>

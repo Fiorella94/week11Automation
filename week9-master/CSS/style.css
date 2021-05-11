@@ -1,0 +1,97 @@
+/*MAIN*/
+body {    
+    float: right;
+    padding-right: 25%;
+    background-color: rgb(178, 207, 221);
+}
+h1 {
+    text-align: center;
+    color: crimson;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+}
+h3 {
+    text-align: center;
+    color: teal;    
+}
+p {
+    text-align: center;
+    color: crimson;    
+    font-size: 15px;
+}
+input {
+    text-align: center;
+    width:100%;    
+}
+form {
+    text-align: center;
+    width: 800px;
+    padding: 15px 0px 70px 0px;
+}
+button {
+    width: 80px;
+    background-color: rgb(229, 255, 0);
+    color: white;
+    
+}
+/*IDs*/
+#login {
+    text-align: center;
+    background-color: rgb(185, 169, 207);
+}
+#reset {
+    width: 80px;
+    background-color: yellowgreen;
+}
+#error-log-container li {
+    list-style-type: none;
+}
+#error-log-cleaner {
+    margin-left: 15px;
+}
+#error-log-cleaner a {    
+    text-decoration: none;
+    font-weight: bold;
+}
+#error-log-cleaner a:hover {    
+    text-decoration: underline;
+    
+}
+/*CLASSES*/
+.hidden {
+    display: none;
+}
+.error-message {
+    font-weight: bold;
+    color: yellow;
+}
+/*message*/
+#message {
+    display: none;
+    background: #f1eeee;
+    color: rgb(209, 93, 15);
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  #message p {
+    padding: 10px 35px;
+    font-size: 18px;
+  }
+  .valid {
+    color: green;
+  }
+  .valid:before {
+    position: relative;
+    left: -35px;
+    content: "&#10004;";
+  }
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    content: "&#10006;";
+  }
