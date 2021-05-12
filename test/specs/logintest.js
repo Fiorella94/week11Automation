@@ -5,8 +5,8 @@ describe('Login section', () => {
         browser.pause(4000);
     }
     
-    const urlRegister = 'https://fiorella94.github.io/';
-    const urlLogin = 'https://fiorella94.github.io/index2.html';
+    const urlRegister = 'https://fiorella94.github.io/week11Automation/public/register.html';
+    const urlLogin = 'https://fiorella94.github.io/week11Automation/public/login.html';
 
     // Email tests
     it('input with empty email', () => {

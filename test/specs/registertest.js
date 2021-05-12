@@ -4,8 +4,9 @@ describe('Register section', () => {
     function browserPause() {
         browser.pause(4000);
     }
-    const urlRegister = 'https://fiorella94.github.io/';
-    const urlLogin = 'https://fiorella94.github.io/index2.html';
+    
+    const urlRegister = 'https://fiorella94.github.io/week11Automation/public/register.html';
+    const urlLogin = 'https://fiorella94.github.io/week11Automation/public/login.html';
 
     beforeAll("Open browser on register url", () => {
         browser.url(urlRegister);
@@ -119,7 +120,7 @@ describe('Register section', () => {
         it('Press Back to Login button and check if the URL is correct', () => {
             RegisterPage.btnLogin.click();
             expect(browser).toHaveUrl(
-                'https://fiorella94.github.io/index2.html'
+                'https://fiorella94.github.io/week11Automation/public/login.html'
             );
             expect(browser).toHaveTitle("LOGIN");
             browser.pause(2000);
