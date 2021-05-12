@@ -1,37 +1,53 @@
 class LoginPage {
-    // Inputs 
-    get inputEmail() {
-        return $('input[id="formLoginEmail"]');
-    }
-    get inputPassword() {
-        return $('input[id="formLoginPassword"]');
-    }
+    /*GETTERS*/
+    
+    
+    // get validationContainer () { return $('#validation-container') }
+    
+    
+    /*LABELS*/
+    get labelEmail () { return $$('label')[0] }
+    get labelPassword () { return $$('label')[1] }
 
-    //error divs
-    get errorDivEmail() {
-        return $('div[id="loginErrorEmail"]').getText();
-    }
-    get errorDivPassword() {
-        return $('div[id="loginErrorPassword"]').getText();
-    }
-     // button 
-     get buttonSubmit() {
-        return $('button[id="loginButton"]');
-    }
+    /*EMAIL*/
+    get inputEmail () { return $('#form-login-email') }
+    
+    /*PASSWORD*/
+    get inputPassword () { return $('#form-login-password') }
 
-    //Link to register form
-    get buttonRegister() {
-        return $('a[id="goToRegisterForm"]');
+    /*EMAIL ERROR*/
+    get errorEmail () { return $('#login-error-email') }
+    
+    /*PASSWORD ERROR*/
+     get errorPassword () { return $('#login-error-password') }
+     
+     /*BUTTONS*/
+     get btnRegister () { return $('#back-to-register') }
+    get btnSubmit () { return $('#login-button') }
+   
+      /*SETTERS*/
+    setEmail (email) {
+      this.inputEmail.setValue(email);
+      browser.keys('Tab');
     }
-
-    buttonRegister() {
-        this.buttonRegister.click();
+    setPassword (password) {
+      this.inputPassword.setValue(password);
+      browser.keys('Tab');
     }
-    login(email, password) {
-        this.inputEmail.setValue(email);
-        this.inputPassword.setValue(password);
-        this.buttonSubmit.click();
+    // /*selector for clean form  function*/
+    // get btnFinish {
+    //   return $('input[id="cleanFormLink"]');
+    // }  
+    /* METHODS */
+     
+    buttonRegister () {
+      this.btnRegister.click();
+    }    
+    testLogin (email, password) {
+      this.setEmail(email);
+      this.setPassword(password);
+      this.btnSubmit.click();
     }
-}
-module.exports = new LoginPage();
-
+  }
+    
+  module.exports = new LoginPage();

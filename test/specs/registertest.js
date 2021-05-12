@@ -4,8 +4,8 @@ describe('Register section', () => {
     function browserPause() {
         browser.pause(4000);
     }
-    const urlRegister = 'http://localhost:4000/register';
-    const urlLogin = 'http://localhost:4000/login';
+    const urlRegister = 'https://fiorella94.github.io/';
+    const urlLogin = 'https://fiorella94.github.io/index2.html';
 
     // Email Tests
     it('input with empty email', () => {
