@@ -1,60 +1,66 @@
 const LoginPage = require('../pageobjects/login.page');
 
-describe('Login section', () => {
-    function browserPause() {
-        browser.pause(4000);
-    }
+describe ('login section with two input fields and two buttons',  () => {    
+    /*URLs to perform the test*/
     
     const urlRegister = 'https://fiorella94.github.io/week11Automation/public/register.html';
     const urlLogin = 'https://fiorella94.github.io/week11Automation/public/login.html';
 
+    beforeAll("Open browser on the tested page", () => {
+        browser.url(urlLogin);
+      });
+
     // Email tests
     it('input with empty email', () => {
-        browser.url(urlLogin);
-        LoginPage.setEmail('', 'Fiorella');
-        expect(LoginPage.errorDivEmail).toBe("Email field can't be empty");
-        browserPause();
+        LoginPage.setEmail()            
+        expect(LoginPage.errorEmail).toHaveText("E-mail must have a valid format");
+        browser.pause(2000)
+
     });
-    it('input with email invalid', () => {
-        LoginPage.setEmail('fiorella@', 'Fiorella');
-        expect(LoginPage.errorDivEmail).toBe('Email is invalid');
-        browserPause();
+    it('input with email invalid without .com', () => {
+        LoginPage.setEmail('fiorella@')            
+        expect(LoginPage.errorEmail).toHaveText("E-mail must have a valid format");
+        browser.pause(2000)
+
     });
 
     // Password tests
-    it('Password without lowercase letter', () => {
-        LoginPage.setPassword('fiorella1994@hotmail.com', 'ALWAYS12');
-        expect(LoginPage.errorDivPassword).toBe('Password must contain at least one lowercase letter');
-        browserPause();
+    it('empty password', () => {            
+        LoginPage.setPassword()            
+        expect(LoginPage.errorPassword).toHaveText("Password must have the correct format");
+        browser.pause(2000);
     });
-    it('password without capital letter ', () => {
-        LoginPage.setPassword('fiorellla1994@hotmail.com', 'always12');
-        expect(LoginPage.errorDivPassword).toBe('Password must contain at least one uppercase letter');
-        browserPause();
+    
+    it('wrongly formated password less than 8 characters', () => {            
+            LoginPage.setPassword('ALWAYS1')
+            expect(LoginPage.errorPassword).toHaveText("Password must have the correct format");
+            browser.pause(2000);
+     });
+    
+    
+     it('wrongly formated password no numbers just letters', () => {            
+            LoginPage.setPassword('Always')
+            expect(LoginPage.errorPassword).toHaveText("Password must have the correct format");
+            browser.pause(2000);
+    })
+    
+   
+    it('correctly formated password', () => {            
+            LoginPage.setPassword('Always12')
+            expect(LoginPage.errorPassword).toHaveText("");
+            browser.pause(2000);
+        
     });
-    it('input without number', () => {
-        LoginPage.setPassword('fiorella1994@hotmail.com', 'Always');
-        expect(LoginPage.errorDivPassword).toBe('Password must contain at least one number');
-        browserPause();
-    });
-    it('password with at least 8 characters', () => {
-        LoginPage.setPassword('fiorella1994@hotmail.com', 'Alwa12');
-        expect(LoginPage.errorDivPassword).toBe('Password must have at least 8 characters');
-        browserPause();
-    });
+   
 
     //  valid credentials
-    it('input with valid credentials', () => {
-        LoginPage.setPassword('fiorella1994@hotmail.com', 'Always12');
-        expect(LoginPage.errorDivEmail).toBe('');
-        browserPause();
+    it('input with valid credentials, click the Login'+
+        'button and test if they show on the validations section below', () => {
+            LoginPage.testLogin('seba20sa@gmail', 'abc123456')
+            expect(LoginPage.listOfResults).toHaveTextContaining([                
+                "The e-mail is: seba20sa@gmail.com",
+                "Password is: abc123456",
+            ]);
+            browser.pause(2000);
+        });
     });
-
-    //Go to register link
-    it('Button "Create account" to go to register', () => {
-        LoginPage.buttonRegister();
-        if (browser.getUrl() === urlRegister);
-        else throw new Error('ERROR');
-        browserPause();
-    });
-});
