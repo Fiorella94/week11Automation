@@ -108,24 +108,24 @@ describe('Register section', () => {
         });
         it('After inserting all the valid credentials on all four fields, click the submit'+
         'button and test if they show on the validations section below', () => {
-            RegisterPage.testRegister('Fiorella Salas', 'fiorella2994s@gmail', 'Always12', 'Always12' )
+            RegisterPage.testRegister('fiorella salas', 'fiorella2994s@gmail', 'Always12', 'Always12');
             expect(RegisterPage.listOfResults).toHaveTextContaining([
                 "Every validation has passed", 
-                
+                "The Name is: fiorella salas",
+                "The e-mail is: fiorella2994s@gmail.com",
+                "The first is: Always12",
+                "The second password is: Always12"
             ]);
             browser.pause(2000);
         });
-        
-        
-        it('Press Back to Login button and check if the URL is correct', () => {
-            RegisterPage.btnLogin.click();
+        it('Press the reset fields button and check if the fields are cleaned up', () => {
+            RegisterPage.btnReset.click();
+            expect(browser.refresh());
             expect(browser).toHaveUrl(
-                'https://fiorella94.github.io/week11Automation/public/login.html'
+                'https://fiorella94.github.io/week11Automation/public/register.html'
             );
-            expect(browser).toHaveTitle("LOGIN");
+            expect(browser).toHaveTitle("Register");
             browser.pause(2000);
         });
     });
 });
-
-        
